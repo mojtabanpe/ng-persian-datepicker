@@ -831,8 +831,6 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     if (this.selectedDate) {
       const currentMonth = this.viewDate.getMonth() + 1;
       const tempDay = day.value;
-      console.log(currentMonth, tempDay);
-
       const isHoliday = this.holidays.find(h => h.month === currentMonth && h.day === tempDay);
       if (isHoliday) {
         return true;

@@ -1,12 +1,13 @@
+Forked from [Saeed-Pooyanfar/ng-persian-datepicker](https://github.com/Saeed-Pooyanfar/ng-persian-datepicker)
 # NgPersianDatepicker
 
-Persian datepicker for angular 12+  
+Persian datepicker for angular 16. Holidays Added to main Project.
 **[Online demo](https://saeed-pooyanfar.github.io/ng-persian-datepicker/)**
 
 # Install
 
 ```
-npm install ng-persian-datepicker
+npm install ng-persian-datepicker2
 npm install jalali-ts@^2.0.4
 ```
 
@@ -16,7 +17,7 @@ Import modules:
 
 ```typescript
 ...
-import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { NgPersianDatepickerModule } from 'ng-persian-datepicker2';
 import { ReactiveFormsModule } from '@angular/forms';
 ...
 
@@ -116,7 +117,7 @@ The lib has 2 events of type `IActiveDate`:
 So, if you need to create `Date` object of selected date:  
 
 ```typescript
-import { IActiveDate } from 'ng-persian-datepicker';
+import { IActiveDate } from 'ng-persian-datepicker2';
 
 @Component(...)
 class DateComponent {
@@ -143,7 +144,7 @@ To create a custom theme you need a set of colors for every part of datepicker c
 Example:
 
 ```typescript
-import { IDatepickerTheme } from 'ng-persian-datepicker';
+import { IDatepickerTheme } from 'ng-persian-datepicker2';
 
 const customTheme: Partial<IDatepickerTheme> = {
   selectedBackground: '#D68E3A',
