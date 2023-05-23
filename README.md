@@ -1,6 +1,7 @@
+Forked from [Saeed-Pooyanfar/ng-persian-datepicker](https://github.com/Saeed-Pooyanfar/ng-persian-datepicker)
 # NgPersianDatepicker
 
-Persian datepicker for angular 12+  
+Persian datepicker for angular 16. Holidays Added to main Project.
 **[Online demo](https://saeed-pooyanfar.github.io/ng-persian-datepicker/)**
 
 # Install
