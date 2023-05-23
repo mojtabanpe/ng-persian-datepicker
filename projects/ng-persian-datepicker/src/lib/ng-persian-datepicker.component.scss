@@ -36,21 +36,31 @@
       border-radius: 5px;
     }
 
+    .holiday {
+      background-color: red;
+      color: white;
+    }
+
     .content-container {
       margin-bottom: 8px;
     }
 
     .navigation-container {
-      .go-forward, .switch-view, .go-back {
+
+      .go-forward,
+      .switch-view,
+      .go-back {
         display: inline-block;
         vertical-align: top;
         height: 24px;
         cursor: pointer;
       }
 
-      .go-forward, .go-back {
+      .go-forward,
+      .go-back {
         width: 15%;
         position: relative;
+
         svg {
           width: 12px;
           height: 12px;
@@ -64,6 +74,7 @@
         width: 66%;
         margin: 0 2%;
         font-weight: bold;
+
         span {
           vertical-align: sub;
         }
@@ -134,7 +145,7 @@
         overflow: auto;
 
         .item {
-          padding: 1px;
+          padding: 1px 10px;
 
           &:first-of-type {
             padding-top: 3px;
@@ -163,6 +174,7 @@
 
     .the-toolbox {
       text-align: right;
+
       .the-item {
         display: inline-block;
         vertical-align: top;

@@ -32,7 +32,18 @@ import {
   styleUrls: ['./ng-persian-datepicker.component.scss']
 })
 export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
-
+  holidays = [{ 'month': 1, 'day': 1 }, { 'month': 1, 'day': 2 }, { 'month': 1, 'day': 3 }, { 'month': 1, 'day': 4 }, { 'month': 1, 'day': 11 }, { 'month': 1, 'day': 12 }, { 'month': 1, 'day': 13 }, { 'month': 1, 'day': 18 }, { 'month': 1, 'day': 23 }, { 'month': 1, 'day': 24 }, { 'month': 1, 'day': 25 },
+  { 'month': 2, 'day': 1 }, { 'month': 2, 'day': 2 }, { 'month': 2, 'day': 3 }, { 'month': 2, 'day': 8 }, { 'month': 2, 'day': 15 }, { 'month': 2, 'day': 22 }, { 'month': 2, 'day': 26 }, { 'month': 2, 'day': 29 },
+  { 'month': 3, 'day': 5 }, { 'month': 3, 'day': 12 }, { 'month': 3, 'day': 14 }, { 'month': 3, 'day': 15 }, { 'month': 3, 'day': 19 }, { 'month': 3, 'day': 26 },
+  { 'month': 4, 'day': 2 }, { 'month': 4, 'day': 8 }, { 'month': 4, 'day': 9 }, { 'month': 4, 'day': 16 }, { 'month': 4, 'day': 23 }, { 'month': 4, 'day': 30 },
+  { 'month': 5, 'day': 5 }, { 'month': 5, 'day': 6 }, { 'month': 5, 'day': 13 }, { 'month': 5, 'day': 20 }, { 'month': 5, 'day': 27 },
+  { 'month': 6, 'day': 3 }, { 'month': 6, 'day': 10 }, { 'month': 6, 'day': 15 }, { 'month': 6, 'day': 17 }, { 'month': 6, 'day': 23 }, { 'month': 6, 'day': 24 }, { 'month': 6, 'day': 25 }, { 'month': 6, 'day': 31 },
+  { 'month': 7, 'day': 2 }, { 'month': 7, 'day': 7 }, { 'month': 7, 'day': 11 }, { 'month': 7, 'day': 14 }, { 'month': 7, 'day': 21 }, { 'month': 7, 'day': 28 },
+  { 'month': 8, 'day': 5 }, { 'month': 8, 'day': 12 }, { 'month': 8, 'day': 19 }, { 'month': 8, 'day': 26 },
+  { 'month': 9, 'day': 3 }, { 'month': 9, 'day': 10 }, { 'month': 9, 'day': 17 }, { 'month': 9, 'day': 24 }, { 'month': 9, 'day': 26 },
+  { 'month': 10, 'day': 1 }, { 'month': 10, 'day': 8 }, { 'month': 10, 'day': 15 }, { 'month': 10, 'day': 22 }, { 'month': 10, 'day': 29 },
+  { 'month': 11, 'day': 5 }, { 'month': 11, 'day': 6 }, { 'month': 11, 'day': 13 }, { 'month': 11, 'day': 19 }, { 'month': 11, 'day': 20 }, { 'month': 11, 'day': 22 }, { 'month': 11, 'day': 27 },
+  { 'month': 12, 'day': 4 }, { 'month': 12, 'day': 6 }, { 'month': 12, 'day': 7 }, { 'month': 12, 'day': 11 }, { 'month': 12, 'day': 18 }, { 'month': 12, 'day': 25 }, { 'month': 12, 'day': 29 }]
   constructor(
     private elementRef: ElementRef<HTMLElement | null>
   ) {
@@ -74,12 +85,12 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
 
   /** @ReactiveForm */
 
-  @ContentChild(FormControlDirective, {static: false})
+  @ContentChild(FormControlDirective, { static: false })
   set _formControlDirective(value: FormControlDirective | undefined) {
     this.setFormControl(value?.control);
   }
 
-  @ContentChild(FormControlName, {static: false})
+  @ContentChild(FormControlName, { static: false })
   set _formControlName(value: FormControlName | undefined) {
     this.setFormControl(value?.control);
   }
@@ -346,7 +357,7 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     const years = this.viewDate.clone();
     years.startOf('year');
     years.add(-6, 'year');
-    for (let i = 0 ; i < 12 ; i++) {
+    for (let i = 0; i < 12; i++) {
       const year: number[] = [years.valueOf(), years.getFullYear()];
       this.years.push({
         timestamp: year[0],
@@ -363,7 +374,7 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     this.months = [];
     const months = this.viewDate.clone();
     months.startOf('year');
-    for (let i = 0 ; i < 12 ; i++) {
+    for (let i = 0; i < 12; i++) {
       const month: number[] = [months.valueOf(), months.getFullYear(), months.getMonth()];
       this.months.push({
         timestamp: month[0],
@@ -395,23 +406,23 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     const prevMonthDays: number = prevMonth.monthLength();
     const nextMonthDays: number = nextMonth.monthLength();
 
-    for (let i = 0 ; i < prevMonthDays ; i++) {
+    for (let i = 0; i < prevMonthDays; i++) {
       prevMonthDetails.push([prevMonth.valueOf(), prevMonth.getFullYear(), prevMonth.getMonth(), prevMonth.getDate()]);
       prevMonth.add(1, 'day');
     }
-    for (let i = 0 ; i < currentMonthDays ; i++) {
+    for (let i = 0; i < currentMonthDays; i++) {
       currentMonthDetails.push([currentMonth.valueOf(), currentMonth.getFullYear(), currentMonth.getMonth(), currentMonth.getDate()]);
       currentMonth.add(1, 'day');
     }
-    for (let i = 0 ; i < nextMonthDays ; i++) {
+    for (let i = 0; i < nextMonthDays; i++) {
       nextMonthDetails.push([nextMonth.valueOf(), nextMonth.getFullYear(), nextMonth.getMonth(), nextMonth.getDate()]);
       nextMonth.add(1, 'day');
     }
 
-    for (let row = 0; row < 6 ; row++) {
+    for (let row = 0; row < 6; row++) {
       const rowValue: IDay[] = [];
 
-      for (let col = 0; col < 7 ; col++) {
+      for (let col = 0; col < 7; col++) {
         const fromPrevMonth: number = (this.viewDate.date.getDay() === 6) ? 0 : (this.viewDate.date.getDay() + 1);
         let index: number = ((row * 7) + col) - fromPrevMonth;
         let day: number[] = [];
@@ -774,13 +785,13 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       // Hour
       const activeHour = this.elementRef.nativeElement?.querySelector('.time-col.hour-col .dp-btn.selected');
-      if (activeHour) activeHour.scrollIntoView({block: 'center'});
+      if (activeHour) activeHour.scrollIntoView({ block: 'center' });
       // Minute
       const activeMinute = this.elementRef.nativeElement?.querySelector('.time-col.minute-col .dp-btn.selected');
-      if (activeMinute) activeMinute.scrollIntoView({block: 'center'});
+      if (activeMinute) activeMinute.scrollIntoView({ block: 'center' });
       // Second
       const activeSecond = this.elementRef.nativeElement?.querySelector('.time-col.second-col .dp-btn.selected');
-      if (activeSecond) activeSecond.scrollIntoView({block: 'center'});
+      if (activeSecond) activeSecond.scrollIntoView({ block: 'center' });
     }, 10);
   }
 
@@ -814,6 +825,23 @@ export class NgPersianDatepickerComponent implements OnInit, OnDestroy {
     this.uiIsVisible = value;
     this.uiIsVisibleChange.next(value);
     this.scrollIntoActiveTime();
+  }
+
+  isHoliday(day: IDay): boolean {
+    if (this.selectedDate) {
+      const currentMonth = this.viewDate.getMonth() + 1;
+      const tempDay = day.value;
+      console.log(currentMonth, tempDay);
+
+      const isHoliday = this.holidays.find(h => h.month === currentMonth && h.day === tempDay);
+      if (isHoliday) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
 }
